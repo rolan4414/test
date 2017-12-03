@@ -18,12 +18,14 @@ def create_app(Config="DevelopmentConfig"):
 
     from resources.item import ItemList, Item
 
-    api.add_resource(ItemList, "/item")
+    api.add_resource(ItemList, "/items")
     api.add_resource(Item, "/item/<string:name>")
 
-    from resources.store import Store
+    from resources.store import Store, StoreList
 
     api.add_resource(Store, "/store/<string:name>")
+    api.add_resource(StoreList, "/store")
+
 
 
     return app

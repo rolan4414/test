@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="938f9468-a48b-4373-92d0-cc5efae82713" name="Default" comment="" />
+    <list default="true" id="938f9468-a48b-4373-92d0-cc5efae82713" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/store.py" afterPath="$PROJECT_DIR$/resources/store.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/system/test_store.py" afterPath="$PROJECT_DIR$/tests/system/test_store.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,11 +18,21 @@
       <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+            <state relative-caret-position="360">
+              <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/system/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -45,24 +59,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_store.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test_store.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/system/test_store.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="495">
+              <caret line="69" column="59" lean-forward="false" selection-start-line="69" selection-start-column="59" selection-end-line="69" selection-end-column="59" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="item.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/item.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="24" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -77,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="store.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="store.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/store.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+            <state relative-caret-position="549">
+              <caret line="32" column="24" lean-forward="false" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
@@ -132,6 +136,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -144,12 +151,12 @@
         <option value="$PROJECT_DIR$/tests/unit/test_store.py" />
         <option value="$PROJECT_DIR$/tests/system/test_item.py" />
         <option value="$PROJECT_DIR$/resources/item.py" />
-        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/models/item.py" />
         <option value="$PROJECT_DIR$/models/store.py" />
-        <option value="$PROJECT_DIR$/tests/system/test_store.py" />
         <option value="$PROJECT_DIR$/tests/integration/test_store.py" />
+        <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/resources/store.py" />
+        <option value="$PROJECT_DIR$/tests/system/test_store.py" />
       </list>
     </option>
   </component>
@@ -159,6 +166,7 @@
     <option name="width" value="1400" />
     <option name="height" value="1028" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -238,7 +246,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Python tests.Unittests in tests">
-    <configuration name="Unittests for test_store.StoreTest" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration name="Unittests for test_store.StoreTest.test_get_all_items" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
@@ -249,7 +257,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="RESTAPITESTS" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_store.StoreTest&quot;" />
+      <option name="_new_target" value="&quot;test_store.StoreTest.test_get_all_items&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
     </configuration>
     <configuration name="Unittests for test_store.StoreTest.test_get_store_not_found" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
@@ -309,19 +317,19 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests for test_store.StoreTest" />
-      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests for test_store.StoreTest.test_get_store_not_found" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for test_store.StoreTest.test_get_store_with_items" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in test_item.py" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in tests" />
+      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests for test_store.StoreTest.test_get_store_not_found" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests for test_store.StoreTest.test_get_store_with_items" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in test_item.py" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in tests" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for test_store.StoreTest.test_get_all_items" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in tests" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests for test_store.StoreTest.test_get_store_with_items" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in test_item.py" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests for test_store.StoreTest.test_get_store_not_found" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for test_store.StoreTest" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests for test_store.StoreTest.test_get_all_items" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests for test_store.StoreTest.test_get_store_with_items" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in test_item.py" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests for test_store.StoreTest.test_get_store_not_found" />
       </list>
     </recent_temporary>
   </component>
@@ -339,47 +347,46 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_for_test_store_StoreTest_test_get_store_with_items - 2017.12.03 at 04h 18m 22s.xml">
-      <configuration name="Unittests for test_store.StoreTest.test_get_store_with_items" configurationId="tests" />
+    <history-entry file="Unittests_for_test_store_StoreTest_test_get_all_items - 2017.12.03 at 04h 57m 53s.xml">
+      <configuration name="Unittests for test_store.StoreTest.test_get_all_items" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_store_StoreTest_test_get_store_with_items - 2017.12.03 at 04h 18m 50s.xml">
-      <configuration name="Unittests for test_store.StoreTest.test_get_store_with_items" configurationId="tests" />
+    <history-entry file="Unittests_for_test_store_StoreTest_test_get_all_items - 2017.12.03 at 04h 58m 01s.xml">
+      <configuration name="Unittests for test_store.StoreTest.test_get_all_items" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_store_StoreTest_test_get_store_with_items - 2017.12.03 at 04h 19m 04s.xml">
-      <configuration name="Unittests for test_store.StoreTest.test_get_store_with_items" configurationId="tests" />
+    <history-entry file="Unittests_for_test_store_StoreTest_test_get_all_items - 2017.12.03 at 04h 58m 47s.xml">
+      <configuration name="Unittests for test_store.StoreTest.test_get_all_items" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_store_StoreTest_test_get_store_with_items - 2017.12.03 at 04h 19m 51s.xml">
-      <configuration name="Unittests for test_store.StoreTest.test_get_store_with_items" configurationId="tests" />
+    <history-entry file="Unittests_for_test_store_StoreTest_test_get_all_items - 2017.12.03 at 04h 59m 23s.xml">
+      <configuration name="Unittests for test_store.StoreTest.test_get_all_items" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_store_StoreTest_test_get_store_with_items - 2017.12.03 at 04h 19m 59s.xml">
-      <configuration name="Unittests for test_store.StoreTest.test_get_store_with_items" configurationId="tests" />
+    <history-entry file="Unittests_for_test_store_StoreTest_test_get_all_items - 2017.12.03 at 04h 59m 48s.xml">
+      <configuration name="Unittests for test_store.StoreTest.test_get_all_items" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_store_StoreTest_test_get_store_with_items - 2017.12.03 at 04h 20m 05s.xml">
-      <configuration name="Unittests for test_store.StoreTest.test_get_store_with_items" configurationId="tests" />
+    <history-entry file="Unittests_for_test_store_StoreTest_test_get_all_items - 2017.12.03 at 05h 00m 43s.xml">
+      <configuration name="Unittests for test_store.StoreTest.test_get_all_items" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_for_test_store_StoreTest_test_get_store_with_items - 2017.12.03 at 04h 20m 45s.xml">
-      <configuration name="Unittests for test_store.StoreTest.test_get_store_with_items" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_tests - 2017.12.03 at 04h 20m 49s.xml">
-      <configuration name="Unittests in tests" configurationId="tests" />
-    </history-entry>
-    <history-entry file="Unittests_in_tests - 2017.12.03 at 04h 21m 28s.xml">
-      <configuration name="Unittests in tests" configurationId="tests" />
+    <history-entry file="Unittests_for_test_store_StoreTest_test_get_all_items - 2017.12.03 at 05h 01m 10s.xml">
+      <configuration name="Unittests for test_store.StoreTest.test_get_all_items" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_tests - 2017.12.03 at 04h 21m 47s.xml">
+      <configuration name="Unittests in tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_tests - 2017.12.03 at 04h 56m 14s.xml">
+      <configuration name="Unittests in tests" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_tests - 2017.12.03 at 05h 01m 15s.xml">
       <configuration name="Unittests in tests" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="112" y="-2" width="1853" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959481" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32959184" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33026585" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -601,16 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="25" column="26" lean-forward="false" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/item.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -629,28 +626,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/unit/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/unit/test_store.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/system/test_item.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="77" column="132" lean-forward="false" selection-start-line="77" selection-start-column="132" selection-end-line="77" selection-end-column="132" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
@@ -667,13 +646,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/system/test_store.py">
+    <entry file="file://$PROJECT_DIR$/tests/system/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -685,6 +662,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="38" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/store.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -693,12 +680,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tests/unit/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/system/test_item.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="77" column="132" lean-forward="false" selection-start-line="77" selection-start-column="132" selection-end-line="77" selection-end-column="132" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/store.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+        <state relative-caret-position="549">
+          <caret line="32" column="24" lean-forward="false" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/system/test_store.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="69" column="59" lean-forward="false" selection-start-line="69" selection-start-column="59" selection-end-line="69" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
