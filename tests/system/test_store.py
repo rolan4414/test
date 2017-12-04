@@ -4,8 +4,20 @@ from tests.base_test import BaseTest
 
 from models.store import StoreModel
 from models.item import ItemModel
+from models.user import UserModel
 
 class StoreTest(BaseTest):
+    def setUp(self):
+        super(StoreTest,self).setUp()
+        with self.app() as c:
+            with self.app_context():
+                UserModel("Test", "asdf").save_to_db()
+
+                r = c.post("/auth", headers = {"Content-Type": "application/json"} , data =json.dumps({"username":"Test",
+                                                                                                    "password": "asdf"}))
+                self.auth_key = "JWT {}".format(json.loads(r.data)["access_token"])
+
+
     def test_get_store_found(self):
         with self.app() as c:
             with self.app_context():
@@ -68,3 +80,32 @@ class StoreTest(BaseTest):
                          "Test5"]
                 }
                 self.assertDictEqual(expected, json.loads(r.data))
+
+    def test_create_item(self):
+        with self.app() as c:
+            with self.app_context():
+
+                r = c.post("/store/Test", headers={"Authorization" : self.auth_key})
+
+                self.assertIsNotNone(StoreModel.find_by_name("Test"))
+                self.assertEqual(r.status_code, 201)
+
+    def test_create_duplicate_item(self):
+        with self.app() as c:
+            with self.app_context():
+                StoreModel("Test").save_to_db()
+
+                r = c.post("/store/Test", headers={"Authorization" : self.auth_key})
+
+                self.assertIsNotNone(StoreModel.find_by_name("Test"))
+                self.assertEqual(r.status_code, 400)
+
+
+    def test_delete_item(self):
+        with self.app() as c:
+            with self.app_context():
+
+                StoreModel("Test").save_to_db()
+
+                r = c.delete("/store/Test")
+                self.assertIsNone(StoreModel.find_by_name("Test"))

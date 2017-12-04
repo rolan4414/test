@@ -1,5 +1,5 @@
 from flask_restful import Resource
-
+from flask_jwt import jwt_required
 from models.store import StoreModel
 
 class Store(Resource):
@@ -11,7 +11,7 @@ class Store(Resource):
             return store.json()
         else:
             return {"message": "Item not found"}, 404
-
+    @jwt_required()
     def post(self, name):
         store = StoreModel.find_by_name(name)
         if store:
@@ -24,7 +24,8 @@ class Store(Resource):
             return {"message": "Item created!"}, 201
 
     def delete(self, name):
-        if item:
+        store = StoreModel.find_by_name(name)
+        if store:
                 StoreModel.find_by_name(name).delete_from_db()
         return {"message": "Item deleted!"}, 200
 
