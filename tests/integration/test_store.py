@@ -37,6 +37,7 @@ class TestModelStore(BaseTest):
             ItemModel("Test1", 21, 1).save_to_db()
             ItemModel("Test2", 21, 1).save_to_db()
 
+
             expected = {"name": "test", "items" : ["Test1",
                                                    "Test2"]}
 

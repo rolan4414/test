@@ -3,7 +3,6 @@ from flask_restful import Api
 from flask_jwt import JWT, JWTError, jsonify
 
 
-
 def create_app(Config="DevelopmentConfig"):
     app = Flask(__name__)
     api = Api(app)
@@ -27,6 +26,21 @@ def create_app(Config="DevelopmentConfig"):
 
     api.add_resource(User, "/user")
 
+    from models.user import Role
+
+    @app.before_first_request
+    def create_roles():
+        if app.config['DEBUG']:
+            from db import db
+            db.create_all()
+
+        if not Role.query.filter_by(id=1).first():
+            Role(name = "User").save_to_db()
+            Role(name = "Moderator").save_to_db()
+            Role(name = "Administrator").save_to_db()
+
+
+
     from security import authenticate, identity
     jwt = JWT(app, authenticate, identity)
 
@@ -41,12 +55,5 @@ def create_app(Config="DevelopmentConfig"):
 
 if __name__ == '__main__':
     app = create_app()
-    if app.config['DEBUG']:
-        @app.before_first_request
-        def create_tables():
-            from db import db
-            db.create_all()
-
-
 
     app.run()

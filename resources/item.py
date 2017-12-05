@@ -2,7 +2,7 @@ from flask_restful import Resource, reqparse
 from models.item import ItemModel
 from models.store import StoreModel
 
-todo = {}
+
 
 class ItemList(Resource):
     def get(self):
