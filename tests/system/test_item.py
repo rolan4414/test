@@ -81,3 +81,52 @@ class ItemTest(BaseTest):
 
                 self.assertIsNotNone(ItemModel.find_by_name("Test"))
                 self.assertEqual(ItemModel.find_by_name("Test").price, 21.0)
+
+
+
+    def test_get_all_items(self):
+        with self.app() as c:
+            with self.app_context():
+                ItemModel("Test1", 21.0, 1).save_to_db()
+                ItemModel("Test2", 22.0, 1).save_to_db()
+                ItemModel("Test3", 23.0, 1).save_to_db()
+
+                r = c.get("/items")
+
+
+                self.assertEqual(json.loads(r.data)["page info"]["total items"], 3)
+
+                self.assertDictEqual(json.loads(r.data)["items"][0], {"price" : 21.0,
+                                                                      "name" : "Test1"})
+                self.assertDictEqual(json.loads(r.data)["items"][1], {"price" : 22.0,
+                                                                      "name" : "Test2"})
+                self.assertDictEqual(json.loads(r.data)["items"][2], {"price" : 23.0,
+                                                                      "name" : "Test3"})
+    def test_pagination_first_page(self):
+        with self.app() as c:
+            with self.app_context():
+                [ItemModel("Test"+str(x), 20+x, 1).save_to_db() for x in range(21)]
+
+                r = c.get("/items/1")
+                print(r.data)
+
+                self.assertEqual(json.loads(r.data)["items"][-1]["name"],"Test19")
+                self.assertEqual(len(json.loads(r.data)["items"]), 20)
+                self.assertEqual(json.loads(r.data)["page info"]["next page"],2)
+                self.assertEqual(json.loads(r.data)["page info"]["total items"],21)
+                self.assertEqual(json.loads(r.data)["page info"]["pages"],2)
+
+    def test_pagination_second_page(self):
+        with self.app() as c:
+            with self.app_context():
+                [ItemModel("Test"+str(x), 20+x, 1).save_to_db() for x in range(21)]
+
+                r = c.get("/items/2")
+                print(r.data)
+
+                self.assertEqual(json.loads(r.data)["items"][0]["name"],"Test20")
+                self.assertEqual(len(json.loads(r.data)["items"]),1)
+                self.assertIsNone(json.loads(r.data)["page info"]["next page"])
+                self.assertEqual(json.loads(r.data)["page info"]["previous page"],1)
+                self.assertEqual(json.loads(r.data)["page info"]["total items"],21)
+                self.assertEqual(json.loads(r.data)["page info"]["pages"],2)

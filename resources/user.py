@@ -1,6 +1,6 @@
 from flask_restful import Resource, reqparse
 from models.user import UserModel, Role
-import json
+
 
 class User(Resource):
     parser = reqparse.RequestParser()
@@ -20,7 +20,6 @@ class User(Resource):
             except:
                 return {"message" : "An error occured"}, 500
             return {"message": "User created"}, 201
-
 
 
     def put(self):

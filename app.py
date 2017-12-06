@@ -18,7 +18,8 @@ def create_app(Config="DevelopmentConfig"):
     from resources.store import Store, StoreList
     from resources.user import User
 
-    api.add_resource(ItemList, "/items")
+    api.add_resource(ItemList, "/items/<int:page>",
+                     "/items")
     api.add_resource(Item, "/item/<string:name>")
 
     api.add_resource(Store, "/store/<string:name>")

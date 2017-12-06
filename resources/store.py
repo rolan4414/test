@@ -11,6 +11,7 @@ class Store(Resource):
             return store.json()
         else:
             return {"message": "Item not found"}, 404
+        
     @jwt_required()
     @requires_roles("Moderator")
     def post(self, name):

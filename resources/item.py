@@ -4,10 +4,28 @@ from models.store import StoreModel
 
 
 
+
 class ItemList(Resource):
-    def get(self):
-        Item_list = [x.json() for x in ItemModel.query.all()]
-        return {"items": Item_list,}
+
+    def get(self, page=1):
+
+        try:
+            paginate = ItemModel.query.paginate(page, 20)
+        except:
+            return {"message": "Page not found"}, 404
+
+        Item_list = [x.json() for x in paginate.items]
+
+
+        return {"items": Item_list,
+                "page info":{
+                    "page": paginate.page,
+                    "pages": paginate.pages,
+                    "total items": paginate.total,
+                    "next page": paginate.next_num,
+                    "previous page": paginate.prev_num,
+                }
+                }
 
 
 class Item(Resource):
