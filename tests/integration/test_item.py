@@ -5,6 +5,8 @@ from models.store import StoreModel
 class ItemTest(BaseTest):
     def test_crud(self):
         with self.app_context():
+            StoreModel("Test1").save_to_db()
+
             item = ItemModel("test", 20.0, 1)
 
             self.assertIsNone(ItemModel.find_by_name("test"))

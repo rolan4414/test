@@ -45,6 +45,9 @@ class Item(Resource):
             return {"message" : "Item not found"}, 404
 
     def post(self, name):
+        if not StoreModel.find_by_id(1):
+            return {"message": "You have to create store first"}, 400
+
         if ItemModel.find_by_name(name):
 
             return {"message" : "Item already exists!!"}, 400
@@ -70,6 +73,9 @@ class Item(Resource):
 
 
     def put(self, name):
+        if not StoreModel.find_by_id(1):
+            return {"message": "You have to create store first"}, 400
+
         item = ItemModel.find_by_name(name)
 
         data = Item.parser.parse_args()

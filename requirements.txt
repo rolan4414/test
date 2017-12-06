@@ -1,1 +1,8 @@
+flask
+flask_sqlalchemy
+flask_jwt
+flask_restful
 flask_permissions
+flask_script
+psycopg2
+gunicorn

@@ -7,10 +7,8 @@ def create_app(Config="DevelopmentConfig"):
     app = Flask(__name__)
     api = Api(app)
 
-    app.config.from_pyfile('settings.py')
 
     app.config.from_object('settings.'+ Config)
-    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///test.db"
     from db import db
     db.init_app(app)
 
@@ -27,19 +25,6 @@ def create_app(Config="DevelopmentConfig"):
 
     api.add_resource(User, "/user")
 
-    from models.user import Role
-
-    @app.before_first_request
-    def create_roles():
-        if app.config['DEBUG']:
-            from db import db
-            db.create_all()
-
-        if not Role.query.filter_by(id=1).first():
-            Role(name = "User").save_to_db()
-            Role(name = "Moderator").save_to_db()
-            Role(name = "Administrator").save_to_db()
-
 
 
     from security import authenticate, identity
@@ -50,8 +35,6 @@ def create_app(Config="DevelopmentConfig"):
         return jsonify({"message": "Couldnt not authorize"}), 401
 
     return app
-
-
 
 
 if __name__ == '__main__':

@@ -1,22 +1,27 @@
 from tests.base_test import BaseTest
 from models.item import ItemModel
+from models.store import StoreModel
 import json
 
 
 
 class ItemTest(BaseTest):
-
     def test_item_found(self):
         with self.app() as c:
             with self.app_context():
+                StoreModel("Test1").save_to_db()
+
                 ItemModel("Test", 20.0, 1).save_to_db()
+
                 r = c.get("/item/Test")
 
                 self.assertEqual(r.status_code, 200)
+
                 expected = {
                     "name" : "Test",
                     "price": 20.0,
                 }
+
                 self.assertDictEqual(json.loads(r.data), expected)
     def test_item_no_found(self):
         with self.app() as c:
@@ -27,6 +32,8 @@ class ItemTest(BaseTest):
     def test_create_item(self):
         with self.app() as c:
             with self.app_context():
+                StoreModel("Test").save_to_db()
+
                 r = c.post("/item/Test", headers = {"Content-Type": "application/json"}, data =json.dumps({"price": 20.0, "store_id": 1}))
 
                 self.assertEqual(r.status_code, 201)
@@ -36,6 +43,7 @@ class ItemTest(BaseTest):
     def test_create_duplicate(self):
         with self.app() as c:
             with self.app_context():
+                StoreModel("Test1").save_to_db()
                 ItemModel("Test", 20.0, 1).save_to_db()
 
                 r = c.post("/item/Test", headers={"Content-Type": "application/json"}, data=json.dumps({"price": 20.0}))
@@ -49,6 +57,7 @@ class ItemTest(BaseTest):
     def test_delete(self):
         with self.app() as c:
             with self.app_context():
+                StoreModel("Test1").save_to_db()
                 ItemModel("Test", 20.0, 1).save_to_db()
 
                 r = c.delete("/item/Test")
@@ -61,6 +70,8 @@ class ItemTest(BaseTest):
     def test_put_update_item(self):
         with self.app() as c:
             with self.app_context():
+                StoreModel("Test1").save_to_db()
+
                 ItemModel("Test", 20.0, 1).save_to_db()
 
                 r = c.put("/item/Test", headers={"Content-Type": "application/json"}, data=json.dumps({"price": 21.0}))
@@ -74,6 +85,7 @@ class ItemTest(BaseTest):
     def test_put_item(self):
         with self.app() as c:
             with self.app_context():
+                StoreModel("Test1").save_to_db()
 
                 r = c.put("/item/Test", headers={"Content-Type": "application/json"}, data=json.dumps({"price": 21.0, "store_id" : 1}))
 
@@ -87,6 +99,8 @@ class ItemTest(BaseTest):
     def test_get_all_items(self):
         with self.app() as c:
             with self.app_context():
+                StoreModel("Test1").save_to_db()
+
                 ItemModel("Test1", 21.0, 1).save_to_db()
                 ItemModel("Test2", 22.0, 1).save_to_db()
                 ItemModel("Test3", 23.0, 1).save_to_db()
@@ -105,10 +119,11 @@ class ItemTest(BaseTest):
     def test_pagination_first_page(self):
         with self.app() as c:
             with self.app_context():
+                StoreModel("Test1").save_to_db()
+
                 [ItemModel("Test"+str(x), 20+x, 1).save_to_db() for x in range(21)]
 
                 r = c.get("/items/1")
-                print(r.data)
 
                 self.assertEqual(json.loads(r.data)["items"][-1]["name"],"Test19")
                 self.assertEqual(len(json.loads(r.data)["items"]), 20)
@@ -119,10 +134,11 @@ class ItemTest(BaseTest):
     def test_pagination_second_page(self):
         with self.app() as c:
             with self.app_context():
+                StoreModel("Test1").save_to_db()
+
                 [ItemModel("Test"+str(x), 20+x, 1).save_to_db() for x in range(21)]
 
                 r = c.get("/items/2")
-                print(r.data)
 
                 self.assertEqual(json.loads(r.data)["items"][0]["name"],"Test20")
                 self.assertEqual(len(json.loads(r.data)["items"]),1)

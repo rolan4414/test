@@ -2,20 +2,16 @@ from unittest import TestCase
 from app import create_app
 from db import db
 
-from models.user import Role
 
 app = create_app()
 class BaseTest(TestCase):
 
-    SQLALCHEMY_DATABASE_URI = "sqlite://"
 
 
     @classmethod
     def setUpClass(cls):
-        app.config['SQLALCHEMY_DATABASE_URI'] = BaseTest.SQLALCHEMY_DATABASE_URI
-        app.config['DEBUG'] = False
 
-
+        app.config.from_object('settings.TestingConfig')
 
     def setUp(self):
         with app.app_context():
