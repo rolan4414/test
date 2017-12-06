@@ -38,11 +38,7 @@ def seed_db():
     Role(name="User").save_to_db()
     Role(name="Moderator").save_to_db()
     Role(name="Administrator").save_to_db()
-    UserModel("Admin","admin",[Role.find_by_id(3),Role.find_by_id(2), Role.find_by_id(1)])
-
-
-
-
+    UserModel("Admin","admin",[x for x in Role.query.all()]).save_to_db()
 
 
 if __name__ == '__main__':
