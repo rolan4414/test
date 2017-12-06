@@ -6,7 +6,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - /opt/docker-compose-mongodb/counter_app
+      - /opt/docker-compose/counter_app
     container_name: restapi_web
     environment:
       - APP_SETTINGS=project.config.DevelopmentConfig
