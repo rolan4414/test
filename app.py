@@ -2,19 +2,22 @@ from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT, JWTError, jsonify
 
+from db import db
+from security import authenticate, identity
 
-def create_app(Config="DevelopmentConfig"):
+from resources.item import ItemList, Item
+from resources.store import Store, StoreList
+from resources.user import User
+
+
+def create_app():
     app = Flask(__name__)
     api = Api(app)
 
+    app.config.from_object('settings.DevelopmentConfig')
 
-    app.config.from_object('settings.'+ Config)
-    from db import db
     db.init_app(app)
 
-    from resources.item import ItemList, Item
-    from resources.store import Store, StoreList
-    from resources.user import User
 
     api.add_resource(ItemList, "/items/<int:page>",
                      "/items")
@@ -27,7 +30,6 @@ def create_app(Config="DevelopmentConfig"):
 
 
 
-    from security import authenticate, identity
     jwt = JWT(app, authenticate, identity)
 
     @app.errorhandler(JWTError)

@@ -6,7 +6,6 @@ from decorators import requires_roles
 class Store(Resource):
     def get(self, name):
         store = StoreModel.find_by_name(name)
-
         if store:
             return store.json()
         else:

@@ -1,8 +1,9 @@
+from models.base_model import BaseModel
 from db import db
 
 
 
-class ItemModel(db.Model):
+class ItemModel(db.Model, BaseModel):
 
     __tablename__ = "items"
 
@@ -23,17 +24,3 @@ class ItemModel(db.Model):
 
     def json(self):
         return {"name": self.name, "price" : self.price}
-
-
-    def save_to_db(self):
-        db.session.add(self)
-        db.session.commit()
-
-    def delete_from_db(self):
-        db.session.delete(self)
-        db.session.commit()
-
-    @classmethod
-    def find_by_name(cls, name):
-        return cls.query.filter_by(name=name).first()
-

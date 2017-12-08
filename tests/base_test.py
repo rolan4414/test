@@ -5,12 +5,8 @@ from db import db
 
 app = create_app()
 class BaseTest(TestCase):
-
-
-
     @classmethod
     def setUpClass(cls):
-
         app.config.from_object('settings.TestingConfig')
 
     def setUp(self):

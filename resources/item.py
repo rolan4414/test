@@ -2,20 +2,15 @@ from flask_restful import Resource, reqparse
 from models.item import ItemModel
 from models.store import StoreModel
 
-
-
-
 class ItemList(Resource):
 
     def get(self, page=1):
-
         try:
             paginate = ItemModel.query.paginate(page, 20)
         except:
             return {"message": "Page not found"}, 404
 
         Item_list = [x.json() for x in paginate.items]
-
 
         return {"items": Item_list,
                 "page info":{
@@ -26,8 +21,6 @@ class ItemList(Resource):
                     "previous page": paginate.prev_num,
                 }
                 }
-
-
 class Item(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('price',
@@ -36,7 +29,6 @@ class Item(Resource):
     parser.add_argument('store_id',
                         type=int,
                         )
-
     def get(self, name):
         item = ItemModel.find_by_name(name)
         if item:
@@ -77,7 +69,6 @@ class Item(Resource):
             return {"message": "You have to create store first"}, 400
 
         item = ItemModel.find_by_name(name)
-
         data = Item.parser.parse_args()
 
         if item is None:
