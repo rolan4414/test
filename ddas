@@ -1,0 +1,162 @@
+[1mdiff --git a/README.md b/README.md[m
+[1mindex bbeefd7..2c41d67 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -1,2 +1,2 @@[m
+ Basic RESTful Api example[m
+[31m-hosted on aws : http://54.159.29.138/items[m
+\ No newline at end of file[m
+[32m+[m[32mhosted on aws : http://52.90.226.211/items[m
+[1mdiff --git a/app.py b/app.py[m
+[1mindex 749f6ce..d33613d 100644[m
+[1m--- a/app.py[m
+[1m+++ b/app.py[m
+[36m@@ -42,4 +42,4 @@[m [mdef create_app():[m
+ if __name__ == '__main__':[m
+     app = create_app()[m
+ [m
+[31m-    app.run()[m
+\ No newline at end of file[m
+[32m+[m[32m    app.run()[m
+[1mdiff --git a/db.py b/db.py[m
+[1mindex 2e1eeb6..f0b13d6 100644[m
+[1m--- a/db.py[m
+[1m+++ b/db.py[m
+[36m@@ -1,3 +1,3 @@[m
+ from flask_sqlalchemy import SQLAlchemy[m
+ [m
+[31m-db = SQLAlchemy()[m
+\ No newline at end of file[m
+[32m+[m[32mdb = SQLAlchemy()[m
+[1mdiff --git a/docker-compose.yml b/docker-compose.yml[m
+[1mindex 65e624a..6eebc6b 100644[m
+[1m--- a/docker-compose.yml[m
+[1m+++ b/docker-compose.yml[m
+[36m@@ -41,4 +41,4 @@[m [mservices:[m
+       web:[m
+         condition: service_started[m
+     links:[m
+[31m-      - web[m
+\ No newline at end of file[m
+[32m+[m[32m      - web[m
+[1mdiff --git a/models/user.py b/models/user.py[m
+[1mindex a49da6f..d1fdb0f 100644[m
+[1m--- a/models/user.py[m
+[1m+++ b/models/user.py[m
+[36m@@ -27,4 +27,4 @@[m [mclass UserRoles(db.Model):[m
+         __tablename__ = 'user_roles'[m
+         id = db.Column(db.Integer(), primary_key=True)[m
+         user_id = db.Column(db.Integer(), db.ForeignKey('users.id', ondelete='CASCADE'))[m
+[31m-        role_id = db.Column(db.Integer(), db.ForeignKey('roles.id', ondelete='CASCADE'))[m
+\ No newline at end of file[m
+[32m+[m[32m        role_id = db.Column(db.Integer(), db.ForeignKey('roles.id', ondelete='CASCADE'))[m
+[1mdiff --git a/requirements.txt b/requirements.txt[m
+[1mindex 557eca1..d7d9e55 100644[m
+[1m--- a/requirements.txt[m
+[1m+++ b/requirements.txt[m
+[36m@@ -5,4 +5,4 @@[m [mflask_restful[m
+ flask_permissions[m
+ flask_script[m
+ psycopg2[m
+[31m-gunicorn[m
+\ No newline at end of file[m
+[32m+[m[32mgunicorn[m
+[1mdiff --git a/resources/item.py b/resources/item.py[m
+[1mindex e79bc12..b265457 100644[m
+[1m--- a/resources/item.py[m
+[1m+++ b/resources/item.py[m
+[36m@@ -79,4 +79,4 @@[m [mclass Item(Resource):[m
+ [m
+         item.save_to_db()[m
+ [m
+[31m-        return item.json()[m
+\ No newline at end of file[m
+[32m+[m[32m        return item.json()[m
+[1mdiff --git a/resources/store.py b/resources/store.py[m
+[1mindex b07d02d..88a2c80 100644[m
+[1m--- a/resources/store.py[m
+[1m+++ b/resources/store.py[m
+[36m@@ -33,4 +33,4 @@[m [mclass Store(Resource):[m
+ class StoreList(Resource):[m
+     def get(self):[m
+         stores = [x.name for x in StoreModel.query.all()][m
+[31m-        return {"stores": stores}[m
+\ No newline at end of file[m
+[32m+[m[32m        return {"stores": stores}[m
+[1mdiff --git a/security.py b/security.py[m
+[1mindex 15558f9..8760568 100644[m
+[1m--- a/security.py[m
+[1m+++ b/security.py[m
+[36m@@ -9,4 +9,4 @@[m [mdef authenticate(username, password):[m
+ [m
+ def identity(payload):[m
+     user_id = payload['identity'][m
+[31m-    return UserModel.find_by_id(user_id)[m
+\ No newline at end of file[m
+[32m+[m[32m    return UserModel.find_by_id(user_id)[m
+[1mdiff --git a/tests/integration/test_item.py b/tests/integration/test_item.py[m
+[1mindex 3e7e77e..1f3d051 100644[m
+[1m--- a/tests/integration/test_item.py[m
+[1m+++ b/tests/integration/test_item.py[m
+[36m@@ -25,4 +25,4 @@[m [mclass ItemTest(BaseTest):[m
+ [m
+             ItemModel("test", 20, 1).save_to_db()[m
+ [m
+[31m-            self.assertEqual(ItemModel.find_by_name("test").shop.name, "test")[m
+\ No newline at end of file[m
+[32m+[m[32m            self.assertEqual(ItemModel.find_by_name("test").shop.name, "test")[m
+[1mdiff --git a/tests/integration/test_store.py b/tests/integration/test_store.py[m
+[1mindex 5d24f67..f7abed5 100644[m
+[1m--- a/tests/integration/test_store.py[m
+[1m+++ b/tests/integration/test_store.py[m
+[36m@@ -41,4 +41,4 @@[m [mclass TestModelStore(BaseTest):[m
+             expected = {"name": "test", "items" : ["Test1",[m
+                                                    "Test2"]}[m
+ [m
+[31m-            self.assertDictEqual(expected, store.json())[m
+\ No newline at end of file[m
+[32m+[m[32m            self.assertDictEqual(expected, store.json())[m
+[1mdiff --git a/tests/system/test_item.py b/tests/system/test_item.py[m
+[1mindex af12aa1..d8e1a03 100644[m
+[1m--- a/tests/system/test_item.py[m
+[1m+++ b/tests/system/test_item.py[m
+[36m@@ -145,4 +145,4 @@[m [mclass ItemTest(BaseTest):[m
+                 self.assertIsNone(json.loads(r.data)["page info"]["next page"])[m
+                 self.assertEqual(json.loads(r.data)["page info"]["previous page"],1)[m
+                 self.assertEqual(json.loads(r.data)["page info"]["total items"],21)[m
+[31m-                self.assertEqual(json.loads(r.data)["page info"]["pages"],2)[m
+\ No newline at end of file[m
+[32m+[m[32m                self.assertEqual(json.loads(r.data)["page info"]["pages"],2)[m
+[1mdiff --git a/tests/system/test_roles_required.py b/tests/system/test_roles_required.py[m
+[1mindex 452d019..06513ac 100644[m
+[1m--- a/tests/system/test_roles_required.py[m
+[1m+++ b/tests/system/test_roles_required.py[m
+[36m@@ -40,4 +40,4 @@[m [mclass RoleRequired(BaseTest):[m
+                 self.assertEqual(r.status_code, 404)[m
+                 self.assertIsNone(StoreModel.find_by_name("Test"))[m
+                 self.assertDictEqual(json.loads(r.data), {"message": "You're not allowed to enter"}[m
+[31m-)[m
+\ No newline at end of file[m
+[32m+[m[32m)[m
+[1mdiff --git a/tests/system/test_user.py b/tests/system/test_user.py[m
+[1mindex fd358f9..aff2d63 100644[m
+[1m--- a/tests/system/test_user.py[m
+[1m+++ b/tests/system/test_user.py[m
+[36m@@ -57,4 +57,4 @@[m [mclass TestUser(BaseTest):[m
+                 self.assertEqual(r.status_code, 201)[m
+                 self.assertIsNotNone(UserModel.find_by_name("Test"))[m
+                 self.assertEqual(json.loads(r.data), {"message" : "User created"})[m
+[31m-                self.assertEqual(UserModel.find_by_name("Test").roles, [Role.find_by_name("User"), Role.find_by_name("Moderator")] )[m
+\ No newline at end of file[m
+[32m+[m[32m                self.assertEqual(UserModel.find_by_name("Test").roles, [Role.find_by_name("User"), Role.find_by_name("Moderator")] )[m
+[1mdiff --git a/tests/unit/test_user.py b/tests/unit/test_user.py[m
+[1mindex 50043aa..fa12638 100644[m
+[1m--- a/tests/unit/test_user.py[m
+[1m+++ b/tests/unit/test_user.py[m
+[36m@@ -6,4 +6,4 @@[m [mclass TestUserModel(BaseTest):[m
+         user = UserModel("Test", "asdf")[m
+ [m
+         self.assertEqual(user.name, "Test")[m
+[31m-        self.assertEqual(user.password, "asdf")[m
+\ No newline at end of file[m
+[32m+[m[32m        self.assertEqual(user.password, "asdf")[m

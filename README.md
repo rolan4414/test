@@ -1,2 +1,2 @@
 Basic RESTful Api example
-hosted on aws : http://54.159.29.138/items
+hosted on aws : http://52.90.226.211/items
