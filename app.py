@@ -11,6 +11,13 @@ from resources.user import User
 
 
 def create_app():
+
+    """
+
+    Test PROJECT
+    :return:
+
+    """
     app = Flask(__name__)
     api = Api(app)
 
