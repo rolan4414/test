@@ -24,21 +24,10 @@ services:
     container_name: users-db
     build: ./db
     ports:
-        - 5435:5432
+        - 5436:5432
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     healthcheck:
       test: exit 0
 
-  nginx:
-    container_name: nginx
-    build: ./nginx/
-    restart: always
-    ports:
-      - 80:80
-    depends_on:
-      web:
-        condition: service_started
-    links:
-      - web

@@ -38,7 +38,7 @@ class TestModelStore(BaseTest):
             ItemModel("Test2", 21, 1).save_to_db()
 
 
-            expected = {"name": "test", "items" : ["Test1",
+            expected = {"nam1e": "test", "items" : ["Test1",
                                                    "Test2"]}
 
             self.assertDictEqual(expected, store.json())
